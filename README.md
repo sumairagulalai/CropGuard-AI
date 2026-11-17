@@ -1,4 +1,3 @@
-
 ---
 title: CropGuard AI
 emoji: 🌱
@@ -19,4 +18,3 @@ This project detects 24 plant disease classes from leaf images.
 - Detect plant diseases
 - Predict disease with confidence score
 - Support 24 disease classes
-
