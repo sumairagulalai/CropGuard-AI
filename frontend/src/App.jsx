@@ -1,5 +1,5 @@
  import { useState, useEffect } from 'react'
-import { D, SEED } from './data'
+ import { D, SEED } from './data/cropData'
 import * as P from './pages'
 
 const load = () => { try { return JSON.parse(localStorage.getItem('cg') || '{}') } catch { return {} } }

@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo, useRef } from 'react'
-import { E, D, CR, nav } from './data'
-import { IM } from './images'
+import { E, D, CR } from '../data/cropData'
+import { IM } from '../assets/images'
+import Sidebar, { BottomNav } from '../components/Sidebar'
 
 export const SM = [['ok', IM.s1], ['early', IM.s2], ['late', IM.s3], ['rust', IM.s4]]
 const ci = (c) => (IM[c] ? <img src={IM[c]} alt={c} /> : '🍃')
@@ -24,13 +25,10 @@ function Shell({ on, c, children }) {
   return (
     <>
       <div className="app">
-        <div className="sb"><b>🍃 CropGuard AI</b>
-          {nav.map((n) => <a key={n[0]} href={'#/' + n[0]} className={on === n[0] ? 'on' : ''}>{n[1]} {n[2]}</a>)}
-          <a className="lo" href="#/login" onClick={c.logout}>⎋ Logout</a>
-        </div>
+        <Sidebar active={on} onLogout={c.logout} />
         <div className="main">{children}</div>
       </div>
-      <div className="bn">{nav.map((n) => <a key={n[0]} href={'#/' + n[0]} className={on === n[0] ? 'on' : ''}><b>{n[1]}</b>{n[2].split(' ')[0]}</a>)}</div>
+      <BottomNav active={on} />
     </>
   )
 }
